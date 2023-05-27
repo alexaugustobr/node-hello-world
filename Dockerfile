@@ -1,10 +1,13 @@
-FROM node:20-slim
+FROM node:12-slim
 
+# Create app directory
 WORKDIR /usr/src/app
 
+# Install app dependencies
 COPY package*.json ./
-RUN RUN npm --force --loglevel=silly install
-##13
+RUN npm --loglevel=silly install
+
+# Bundle app source
 COPY . .
 
 EXPOSE 8080

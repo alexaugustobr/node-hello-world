@@ -3,11 +3,11 @@ FROM node:20-slim
 # Create app directory
 WORKDIR /usr/src/app
 
-COPY ../package*.json ./
+COPY ../../package*.json ./
 RUN npm --loglevel=silly install
 
 # Bundle app source
-COPY ../ .
+COPY ../../ .
 
 EXPOSE 8080
 CMD [ "node", "app.js" ]
